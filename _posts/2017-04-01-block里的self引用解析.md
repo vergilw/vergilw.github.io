@@ -30,12 +30,12 @@ block：
 
 例子:
 
-{% highlight objective-c %}
+``` objectivec
 __weak __typeof(self) weakSelf = self;
 [self executeBlock:^(NSData *data, NSError *error) {
     [weakSelf doSomethingWithData:data];
 }];
-{% endhighlight %}
+```
 
 不要这样做:
 
