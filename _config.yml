@@ -1,8 +1,8 @@
 # Basic
-title: vergilw's blog
+title: vergil wang
 subtitle: 
-welcome_message: iOS developer
-description: hi, i'm vergilw, i'm a iOS developer from China, i'm living in Hubei,Wuhan.
+welcome_message: iOS Developer
+description: Hi, i'm vergilw, i'm a iOS developer from China, i'm living in Hubei,Wuhan.
 creator: <a href="https://github.com/vergilw">@vergilw</a>
 
 url: "https://vergilw.github.io/"
@@ -13,7 +13,7 @@ permalink: /:year/:month/:title/
 highlighter: rouge
 
 # supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
-cover_color: red
+cover_color: green
 
 # The blog button should not be removed.
 blog_button:
@@ -22,7 +22,7 @@ blog_button:
 
 # Navigation buttons in the front page.
 nav:
-    - {title: Projects, description: My Projects, url: 'http://project.onevcat.com'}
+    - {title: Projects, description: My Projects, url: 'https://github.com/vergilw'}
     # - {title: Another Button, description: A button, url: 'http://example.com'}
 
 # Pagination
@@ -37,11 +37,11 @@ comment:
     
 # Social
 social:
-    weibo: onevcat
-    github: onevcat
-    twitter: onevcat
-    gplus: 107108267983477358170
-    mail: onev@onevcat.com
+    #weibo: onevcat
+    github: vergilw
+    #twitter: onevcat
+    #gplus: 107108267983477358170
+    mail: antjun@126.com
 
 # Google Analytics
 ga:
