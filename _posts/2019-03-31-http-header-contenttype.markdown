@@ -1,3 +1,9 @@
+---
+layout: post
+title: HTTP Header - ContentType
+date: 2019-03-31
+---
+
 >终端开发少不了和服务端进行网络交互，在大部分平台成熟的框架里，对于API交互封装的非常好，但是如果你需要自己封装网络层的时候就需要了解HTTP Header里的一些基本概念。本文主要介绍ContentType和Accept。
     
 ## ContentType

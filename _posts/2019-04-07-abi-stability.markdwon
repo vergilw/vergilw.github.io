@@ -25,11 +25,15 @@ ABI稳定之后，OS发行商就可以把Swift标准库和运行时作为操作�
 
 就像之前提到的一样，对二进制程序库来说，ABI稳定是必要但不充分的。模块文件格式的稳定性也是必须的，但这超出了这份文档讨论的范畴。
 
+----
 
-##### 更多资料
+#### 更多资料
 [Swift官网-ABI Stability and More](https://swift.org/blog/abi-stability-and-more/)
+
 [小专栏iOS成长之路-Swift ABI 稳定性蓝图](https://xiaozhuanlan.com/topic/0195376248)
+
 [王巍博客-Swift ABI 稳定对我们到底意味着什么](https://onevcat.com/2019/02/swift-abi/)
+
 [Swift官网-Evolving Swift On Apple Platforms After ABI Stability](https://swift.org/blog/abi-stability-and-apple/)
 
 
