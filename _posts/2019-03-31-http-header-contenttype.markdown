@@ -23,7 +23,7 @@ multipart/form-data用于POST、PUT请求。multipart/form-data主要用于数�
 * #### application/json
 application/json用于多种Method，在RESTful普及的今天特别常用，因为它能够组装复杂的键值对数据，将数据模型通过JSON序列化以对象的方式传给服务端。典型的使用场景是终端以POST、PUT方式发送JSON序列化对象直接创建数据。
 
-***
+----
 
 ## Accept
 Accept 请求头用来告知服务端终端可以处理的内容类型，这种内容类型用MIME类型来表示。它与ContentType不同的是，它可以同时指定多个值。
