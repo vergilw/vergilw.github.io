@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ABI Stability
-date: 2019-04-07 22:17:00.000000000 +08:00
+date: 2019-04-07
 ---
 
 
