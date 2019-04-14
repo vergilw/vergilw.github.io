@@ -27,6 +27,7 @@ StatefulWidget是解决问题的超集，它同样能解决StatelessWidget可以
 
 ### 三种常用情况下的选型
 1. someDate由于父Widget发生的事情而发生变化。例如，FoobarWidget的功能只是显示日期，那么当父Widget需要更新日期时，它可以创建具有新状态的FoobarWidget的新实例。在这种情况下，可以只使用一个简单的StatelessWidget。
+
 ```dart
 class FoobarWidgetA extends StatelessWidget {
   final DateTime someDate;
@@ -39,7 +40,9 @@ class FoobarWidgetA extends StatelessWidget {
   }
 }
 ```
+
 2. someDate更改是因为自身FoobarWidget发生的事情，父Widget需要知道更改后的日期。例如，如果FoobarWidget的功能是让用户选择日期，则需要通知父Widget用户选择的日期。在这种情况下，父Widget提供someDate值和FoobarWidget在想要更改值时应调用的callback。父Widget接收新值，自身调用setState，并使用新值重建FoobarWidget，更新UI。
+
 ```dart
 class FoobarWidgetB extends StatelessWidget {
   final DateTime someDate;
