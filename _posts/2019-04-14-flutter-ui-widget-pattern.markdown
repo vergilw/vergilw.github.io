@@ -63,7 +63,9 @@ class FoobarWidgetB extends StatelessWidget {
   }
 }
 ```
+
 3. someDate发生了变化，因为自身FoobarWidget发生了一些事情，但父Widget不需要知道更改后的日期。例如，如果FoobarWidget的功能是展示不同日期探索月球的各个阶段，用户可以选择不同日期来查看。在这种情况下，比较好的模式是“initial value pattern”。在此模式中，父Widget提供初始值，当State对象初始化时，FoobarWidget将复制到其State对象中的可变字段someDate中。当用户与FoobarWidget交互时，State对象中的字段发生改变，setState让FoobarWidget使用新值重建。永远不会通知父Widget修改后的新值，如果父Widget使用新的初始值重建，则FoobarWidget会忽略新的初始值，因为它的State初始化过了。
+
 ```dart
 class FoobarWidgetC extends StatefulWidget {
   final DateTime initialDate;
