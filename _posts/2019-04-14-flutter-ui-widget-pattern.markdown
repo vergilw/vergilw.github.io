@@ -4,10 +4,10 @@ title: Flutter UI开发Widget选型
 date: 2019-04-14
 ---
 
-> 刚接触Flutter的时候，UI开发常常会遇到选用StatefulWidget还是StatelessWidget的问题。良好的设计对于程序性能有一定帮助，所以Flutter平台下的开发者应该掌握这个知识点。
+> 刚接触Flutter的时候，UI开发常常会遇到选用StatefulWidget还是StatelessWidget的问题。良好的设计能提升开发效率和维护成本，所以Flutter平台下的开发者应该掌握这个知识点。
 
 ## State介绍
-在选择StateFul和Stateless之前，先要了解清楚State。
+在选择Stateful和Stateless之前，先要了解清楚State。
 
 一个StatefulWidget类会对应一个State类，State表示与其对应的StatefulWidget要维护的状态，State中的保存的状态信息可以：
 
@@ -19,7 +19,7 @@ State中有两个常用属性：
 1. widget，它表示与该State实例关联的widget实例，由Flutter framework动态设置。注意，这种关联并非永久的，因为在应用声明周期中，UI树上的某一个节点的widget实例在重新构建时可能会变化，**但State实例只会在第一次插入到树中时被创建，当在重新构建时，如果widget被修改了，Flutter framework会动态设置State.widget为新的widget实例**。
 2. context，它是BuildContext类的一个实例，表示构建widget的上下文，它是操作widget在树中位置的一个句柄，它包含了一些查找、遍历当前Widget树的一些方法。每一个widget都有一个自己的context对象。
 
-所以State对象Stateful对应的State对象只会创建一次，哪怕渲染树发生了改变，修改了当前Stateful的Widget，State还是不会变化，只是将Widget指向了新的Widget。
+所以Stateful对应的State对象只会创建一次，哪怕渲染树发生了变化，修改了当前Stateful的Widget实例，State还是不会变化，只是将state.widget指向了新的Widget实例。
 
 ## Stateful与Stateless的选择
 StatefulWidget是解决问题的超集，它同样能解决StatelessWidget可以解决的问题，因为StatefulWidget可以拥有一个空的State对象。但是，实现StatefulWidgets的语法比StatelessWidget更简单。Flutter框架中设计了StatelessWidget，就是可以使用不那么详细的机制解决更简单的问题因此（那些不需要状态的问题）。
@@ -103,10 +103,11 @@ class _FoobarWidgetCState extends State<FoobarWidgetC> {
   }
 }
 ```
+
 ---
 
-#### 更多资料
-1. [官方文档StatefulWidget-class](https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html)
-2. [官方文档StatelessWidget-class](https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html)
-3. [flutter-dev forum](https://groups.google.com/forum/#!msg/flutter-dev/zRnFQU3iZZs/ThAfrMfyBwAJ)
-4. [Effective Flutter](https://github.com/flutter/flutter/issues/7044)
+#### **更多资料**
+* [官方文档StatefulWidget-class](https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html)
+* [官方文档StatelessWidget-class](https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html)
+* [flutter-dev forum](https://groups.google.com/forum/#!msg/flutter-dev/zRnFQU3iZZs/ThAfrMfyBwAJ)
+* [Effective Flutter](https://github.com/flutter/flutter/issues/7044)
