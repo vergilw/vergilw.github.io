@@ -22,8 +22,8 @@ State中有两个常用属性：
 所以Stateful对应的State对象只会创建一次，哪怕渲染树发生了变化，修改了当前Stateful的Widget实例，State还是不会变化，只是将state.widget指向了新的Widget实例。
 
 ## Stateful与Stateless的选择
-StatefulWidget是解决问题的超集，它同样能解决StatelessWidget可以解决的问题，因为StatefulWidget可以拥有一个空的State对象。但是，实现StatefulWidgets的语法比StatelessWidget更简单。Flutter框架中设计了StatelessWidget，就是可以使用不那么详细的机制解决更简单的问题因此（那些不需要状态的问题）。
-所以说选择了合适的Widget，提升开发效率是显而易见的。
+StatefulWidget是解决问题的超集，它同样能解决StatelessWidget可以解决的问题，因为StatefulWidget可以拥有一个空的State对象。但是，实现StatelessWidgets的语法比StatefulWidget更简单。Flutter框架中设计了StatelessWidget，就是可以使用不那么详细的机制解决更简单的问题（那些不需要状态的问题）。
+所以说选择合适的Widget，提升开发效率是显而易见的。
 
 ### 三种常用情况下的选型
 1. someDate由于父Widget发生的事情而发生变化。例如，FoobarWidget的功能只是显示日期，那么当父Widget需要更新日期时，它可以创建具有新状态的FoobarWidget的新实例。在这种情况下，可以只使用一个简单的StatelessWidget。
@@ -114,5 +114,6 @@ class _FoobarWidgetCState extends State<FoobarWidgetC> {
 #### **更多资料**
 * [官方文档StatefulWidget-class](https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html)
 * [官方文档StatelessWidget-class](https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html)
+* [flutterchina-widget](https://book.flutterchina.club/chapter3/flutter_widget_intro.html)
 * [flutter-dev forum](https://groups.google.com/forum/#!msg/flutter-dev/zRnFQU3iZZs/ThAfrMfyBwAJ)
 * [Effective Flutter](https://github.com/flutter/flutter/issues/7044)
