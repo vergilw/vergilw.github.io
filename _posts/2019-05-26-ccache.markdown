@@ -1,0 +1,30 @@
+---
+layout: post
+title: ccache编译器缓存
+date: 2019-05-26
+---
+
+### ccache是什么
+ccache（**compiler cache**）是一个编译器缓存工具，它通过缓存先前的编译结果来减少重新编译的时间。支持的语言包括C，C ++，Objective-C和Objective-C++，主要工作于GCC编译器或者跟GCC类似的编译器。
+ccache是samba团队贡献的开源工具，当前由samba团队的Joel Rosdahl负责维护，最初是由Andrew Tridge Tridgell开发。灵感来源于Erik Thiele的[编译器缓存shell脚本](http://www.erikyyy.de/compilercache/)，打破了shell脚本的限制，获得更快的缓存速度。
+
+### ccache如何工作
+#### 传统编译过程
+在标准的编译过程中，在 UNIX 下使用 C/C++ 开发应用程序通常需要用到一个编译器（如 gcc）以及一个编译 工具，比如 make。make 和所有的 C 编译器的问题在于 C 预处理程序（preprocessor）和头文件的工作方式。观察 一个典型的 C 源文件，您会发现其中有很多由 #include 所引用的各种头文件。
+
+每一次编译一个文件时，C 预处理程序（cpp）都会解析并引入每个头文件以及这些头文件引用到的任何文件。 通过对内容进行解析，ccp 可以将一个相当基本的 1-KB 大小的源文件转化为一个 8-KB 大小的源文件， 在这个过程中，会合并入几十个甚至几百个头文件。在典型的开发项目中，有很多与项目相关的头文件可能 会在不同的源文件中多次被引入，而且每个头文件本身也可能引用很多其他头文件。
+
+#### ccache作用
+ccache工具会高速缓存编译生成的信息，并在编译的特定部分使用高速缓存的信息，比如头文件。ccache将先前编译过的头文件的文本直接拷贝到文件中，代替了头文件引用的代码，使得它可以立即被编译，从而达到编译加速的效果。
+
+### ccache适用场景
+ccache适用于多人协作的大型项目，主要适用于以下三种情况：
+1. 如果你使用过`make clean; make`，ccache会大有用处。开发者通常会出于各种原因对项目进行`clean build`，这会抛弃先前编译中的所有信息。但是使用ccache，重新编译会更快。
+2. 如果你的主项目依赖多个子项目，例如用CocoaPods/Cathage管理不同的模块，子项目分布于不同的文件夹中。使用ccache，可以从缓存中获取。
+3. 如果你们项目使用了CI，使用ccache是非常有用的。
+
+#### **Reference**
+* [ccache官方主页](https://ccache.dev/)
+* [IBM-ccache介绍](https://www.ibm.com/developerworks/cn/linux/l-ccache.html)
+* [samba团队](https://www.samba.org/samba/team/)
+
