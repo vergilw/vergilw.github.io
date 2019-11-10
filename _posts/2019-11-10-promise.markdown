@@ -1,0 +1,47 @@
+---
+layout: post
+title: Promise
+date: 2019-11-10
+---
+
+### Promise
+Promise 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值.
+
+```javascript
+new Promise( function(resolve, reject) {...} /* executor */  );
+```
+
+#### executor
+executor是带有 resolve 和 reject 两个参数的函数 。Promise构造函数执行时立即调用executor 函数， resolve 和 reject 两个函数作为参数传递给executor（executor 函数在Promise构造函数返回所建promise实例对象前被调用）。resolve 和 reject 函数被调用时，分别将promise的状态改为fulfilled（完成）或rejected（失败）。executor 内部通常会执行一些异步操作，一旦异步操作执行完毕(可能成功/失败)，要么调用resolve函数来将promise状态改成fulfilled，要么调用reject 函数将promise的状态改为rejected。如果在executor函数中抛出一个错误，那么该promise 状态为rejected。executor函数的返回值被忽略。
+
+#### Promise对象
+Promise 对象是一个代理对象（代理一个值），被代理的值在Promise对象创建时可能是未知的。它允许你为异步操作的成功和失败分别绑定相应的处理方法（handlers）。 这让异步方法可以像同步方法那样返回值，但并不是立即返回最终执行结果，而是一个能代表未来出现的结果的promise对象
+
+一个 Promise有以下几种状态:
+
+* pending: 初始状态，既不是成功，也不是失败状态。
+* fulfilled: 意味着操作成功完成。
+* rejected: 意味着操作失败。
+
+---
+
+在使用 Promise 时，会有以下约定：
+
+* 在 本轮 Javascript event loop（事件循环）运行完成 之前，回调函数是不会被调用的。
+* 通过 then() 添加的回调函数总会被调用，即便它是在异步操作完成之后才被添加的函数。
+* 通过多次调用 then()，可以添加多个回调函数，它们会按照插入顺序一个接一个独立执行。
+
+因此，Promise 最直接的好处就是链式调用（chaining）
+
+### 链式调用
+连续执行两个或者多个异步操作是一个常见的需求，在上一个操作执行成功之后，开始下一个的操作，并带着上一步操作所返回的结果。我们可以通过创造一个 Promise 链来实现这种需求。
+
+链式调用通过一次Catch通过捕获所有的错误，甚至抛出异常和程序错误，Promise 解决了回调地狱的基本缺陷。这对于构建异步操作的基础功能而言是很有必要的。
+
+```javascript
+doSomething()
+.then(result => doSomethingElse(value))
+.then(newResult => doThirdThing(newResult))
+.then(finalResult => console.log(`Got the final result: ${finalResult}`))
+.catch(failureCallback);
+```
